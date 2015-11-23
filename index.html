@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub repo card</title>
+    <style>
+        @import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #fff;
+            padding-top: 100px;
+        }
+
+        .repo-card {
+            margin: 0 auto;
+            padding-bottom: 60px;
+            width: 350px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .repo-card__image-wrap {
+            background-size: cover;
+            height: 100px;
+            width: 100%;
+            position: relative;
+            -webkit-transition: height .3s ease-in;
+            transition: height .3s ease-in;
+        }
+
+        .repo-card__image-wrap:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(51, 51, 51, 0.25);
+            z-index: 1;
+        }
+
+        .repo-card__location {
+            color: #fff;
+            z-index: 20;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+
+        .repo-card__header {
+            text-align: left;
+            padding-left: 140px;
+            position: absolute;
+            bottom: -28px;
+            left: 0;
+            color: #fff;
+            padding-left: 140px;
+            z-index: 20;
+            -webkit-transition: -webkit-transform .3s ease-in;
+            transition: transform .3s ease-in;
+            will-change: transform;
+        }
+
+        .repo-card__title {
+            margin: 0;
+            color: #fff;
+            font-size: 1.125em;
+            font-weight: 400;
+            font-weight: 400;
+            z-index: 10;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .repo-card__sub-title {
+            color: #999;
+            font-size: 0.875em;
+            padding-top: 12px;
+            -webkit-transition: -webkit-transform .3s ease-in;
+            transition: transform .3s ease-in;
+            will-change: transform;
+        }
+
+        .repo-card__thumb-wrap {
+            width: 110px;
+            height: 110px;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 3px;
+            position: absolute;
+            bottom: -55px;
+            left: 15px;
+            border-radius: 110px;
+            z-index: 10;
+            -webkit-transition: -webkit-transform .3s linear;
+            transition: transform .3s linear;
+            will-change: transform;
+        }
+
+        .repo-card__thumb {
+            width: 104px;
+            height: 104px;
+            display: block;
+            border-radius: 84px;
+        }
+
+        .repo-card__content-wrap {
+            padding-bottom: 0px;
+            min-height: 50px;
+            position: relative;
+        }
+
+        .repo-card__content-wrap::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            z-index: 20;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            border-color: transparent transparent #ffffff transparent;
+            -webkit-transform: translateY(10px);
+            -ms-transform: translateY(10px);
+            transform: translateY(10px);
+            -webkit-transition: -webkit-transform .3s ease-in;
+            transition: transform .3s ease-in;
+            margin-left: -10px;
+        }
+
+        .repo-card__content {
+            padding: 20px 20px 0;
+            text-align: left;
+            line-height: 1.3;
+            font-size: 1em;
+            font-size: 0.875em;
+            color: #666;
+            max-height: 0;
+            overflow: hidden;
+            -webkit-transform: translateY(-10%);
+            -ms-transform: translateY(-10%);
+            transform: translateY(-10%);
+            -webkit-transition: max-height .3s ease-in, opacity .3s ease-in;
+            transition: max-height .3s ease-in, opacity .3s ease-in;
+            will-change: transform, opacity;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .repo-card__content p {
+            margin: 0;
+        }
+
+        .repo-card__social {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: table;
+            border-top: 1px solid #ccc;
+            padding: 10px 0;
+        }
+
+        .repo-card__socialItem {
+            display: table-cell;
+            text-align: center;
+        }
+
+        .repo-card__socialLink {
+            color: #999;
+        }
+
+        .repo-card:hover .repo-card__image-wrap {
+            height: 150px;
+        }
+
+        .repo-card:hover .repo-card__content-wrap:after {
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        .repo-card:hover .repo-card__content {
+            max-height: 200px;
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
+            -webkit-transition: max-height .3s ease-in, opacity .3s ease-in;
+            transition: max-height .3s ease-in, opacity .3s ease-in;
+        }
+
+        .repo-card:hover .repo-card__thumb-wrap {
+            -webkit-transform: translateY(-70%);
+            -ms-transform: translateY(-70%);
+            transform: translateY(-70%);
+        }
+
+        .repo-card:hover .repo-card__header {
+            -webkit-transform: translateY(-110%);
+            -ms-transform: translateY(-110%);
+            transform: translateY(-110%);
+        }
+
+        .repo-card:hover .repo-card__sub-title {
+            color: #fff;
+            -webkit-transform: translateY(-10px);
+            -ms-transform: translateY(-10px);
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="repo-card">
+    <div style="background-image:url(https://farm9.staticflickr.com/8682/15309989834_7ef83fcfca_z.jpg);" class="repo-card__image-wrap">
+        <div class="repo-card__location"><i class="fa fa-map-pin"></i></div>
+        <div class="repo-card__thumb-wrap"><img src="https://farm4.staticflickr.com/3022/3009079316_3caf8c7655_q.jpg" class="repo-card__thumb"/></div>
+        <header class="repo-card__header">
+            <h1 class="repo-card__title">Carmelita Franco Anticio</h1>
+            <div class="repo-card__sub-title">Fashion photographer</div>
+        </header>
+    </div>
+    <div class="repo-card__content-wrap">
+        <div class="repo-card__content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sit amet euismod justo. Cras malesuada vel mi vitae varius. Cras porttitor nisi in tempus congue. Suspendisse feugiat nisi at est volutpat, et consequat nulla iaculis. Donec cursus ligula massa, at ullamcorper orci mollis vitae.</p>
+        </div>
+    </div>
+    <ul class="repo-card__social">
+        <li class="repo-card__socialItem"><a href="#" class="repo-card__socialLink"><i class="fa fa-facebook"></i></a></li>
+        <li class="repo-card__socialItem"><a href="#" class="repo-card__socialLink"><i class="fa fa-twitter"></i></a></li>
+        <li class="repo-card__socialItem"><a href="#" class="repo-card__socialLink"><i class="fa fa-instagram"></i></a></li>
+        <li class="repo-card__socialItem"><a href="#" class="repo-card__socialLink"><i class="fa fa-link"></i></a></li>
+        <li class="repo-card__socialItem"><a href="#" class="repo-card__socialLink"><i class="fa fa-envelope"></i></a></li>
+    </ul>
+</div>
+
+<script src="githubcard/repo-card.js">
+
+</script>
+
+</body>
+</html>
