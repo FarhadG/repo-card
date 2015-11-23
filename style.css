@@ -28,6 +28,7 @@ body {
 	position           : relative;
 	-webkit-transition : height .3s ease-in;
 	transition         : height .3s ease-in;
+	background         : rgba(0, 0, 0, 0);
 }
 
 .repo-card__image-wrap:before {
@@ -71,7 +72,7 @@ body {
 	padding-bottom : 6px;
 }
 
-.repo-card__sub-title {
+.repo-card__author {
 	color              : #999999;
 	font-size          : 0.875em;
 	padding-top        : 12px;
@@ -200,7 +201,7 @@ body {
 	transform         : translateY(-110%);
 }
 
-.repo-card:hover .repo-card__sub-title {
+.repo-card:hover .repo-card__author {
 	color             : #FFFFFF;
 	-webkit-transform : translateY(-10px);
 	-ms-transform     : translateY(-10px);
