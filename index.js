@@ -1,5 +1,24 @@
 var RepoCard = RepoCard || (function() {
 
+
+		/**
+		 * RepoCard constructor
+		 *
+		 * @returns {*}
+		 * @constructor
+		 */
+
+		function RepoCard() {
+			if (!(this instanceof RepoCard)) {
+				return RepoCard();
+			}
+			var script = getRepoCardScript();
+			var params = getRepoCardParams(script);
+		}
+
+		// Super BETA
+		RepoCard.version = '0.0.1';
+
 		// gets all of the parameters from a given script
 		function getRepoCardParams(script) {
 			var params = {};
@@ -23,20 +42,7 @@ var RepoCard = RepoCard || (function() {
 			}
 		}
 
-		// what kicks things off
-		function init() {
-			var script = getRepoCardScript();
-			var params = getRepoCardParams(script);
-			console.log(params)
-		}
-
-		// let the magic begin
-		init();
-
-		return {
-			name: 'Repo Card',
-			version: '0.0.1'
-		};
+		return RepoCard();
 
 	}());
 
