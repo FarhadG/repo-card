@@ -11,36 +11,11 @@ var RepoCardLib = RepoCardLib || (function() {
 			if (!(this instanceof RepoCard)) {
 				return new RepoCard();
 			}
-			this.params = _getRepoCardParams();
-			this.configure();
+      this.configure();
 		}
 
 		// Super BETA
-		RepoCard.version = '0.0.1';
-
-		// gets all of the parameters from a given script
-		function _getRepoCardParams(script) {
-			var script = _getRepoCardScript()
-			var params = {};
-			var attributes = script.attributes;
-			for (var label in attributes) {
-				if (attributes.hasOwnProperty(label)) {
-					var node = attributes[label];
-					params[node.name.replace(/data-/g, '')] = node.value;
-				}
-			}
-			return params;
-		}
-
-		// get the correct script based on the id
-		function _getRepoCardScript() {
-			var scripts = document.getElementsByTagName('script');
-			for (var i = 0, len = scripts.length; i < len; i++) {
-				var script = scripts[i];
-				var id = script.getAttribute('id');
-				if (id === 'repo-card-lib') return scripts[i];
-			}
-		}
+    //RepoCard.version = '0.0.1';
 
 		/**
 		 * Helper function for setting the content of the given dom element
@@ -69,6 +44,7 @@ var RepoCardLib = RepoCardLib || (function() {
 		 */
 
 		RepoCard.prototype.configure = function configure() {
+      var params = ScriptTagData.getData('repo-card-lib');
 			var watchers = {
 				name: function(name) {
 					return _setContent('repo-card__title', name);
@@ -83,8 +59,8 @@ var RepoCardLib = RepoCardLib || (function() {
 					return _setStyle('repo-card__thumb', 'background', value);
 				}
 			};
-			for (var param in this.params) {
-				(watchers[param]) && (watchers[param](this.params[param]));
+			for (var param in params) {
+				(watchers[param]) && (watchers[param](params[param]));
 			}
 		};
 
