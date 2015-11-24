@@ -8,15 +8,15 @@
 <body>
 
 	<div class="repo-card">
-  <div class="repo-card__image-wrap">
+	  <div class="repo-card__image-wrap">
 	    <div class="repo-card__location"><i class="fa fa-map-pin"></i></div>
 	    <div class="repo-card__thumb-wrap">
 		    <img class="repo-card__thumb" />
 	    </div>
-	      <header class="repo-card__header">
-	        <h1 class="repo-card__title">-- Repo Name --</h1>
-	        <div class="repo-card__author">-- Repo Author(s) --</div>
-	      </header>
+	    <header class="repo-card__header">
+	      <h1 class="repo-card__title">-- Repo Name --</h1>
+	      <div class="repo-card__author">-- Repo Author(s) --</div>
+	    </header>
 	  </div>
 
 	  <div class="repo-card__content-wrap">
@@ -27,22 +27,32 @@
 
 	  <ul class="repo-card__social">
 	    <li class="repo-card__socialItem">
-		    <a href="#" class="repo-card__socialLink"><i class="fa fa-facebook"></i></a>
+				<a class="github-button"
+				   href="https://github.com/ntkme/github-buttons"
+				   data-icon="octicon-star"
+				   data-count-href="/ntkme/github-buttons/stargazers"
+				   data-count-api="/repos/ntkme/github-buttons#stargazers_count"
+				   data-count-aria-label="# stargazers on GitHub"
+				   aria-label="Star ntkme/github-buttons on GitHub">Star</a>
 	    </li>
 	    <li class="repo-card__socialItem">
-		    <a href="#" class="repo-card__socialLink"><i class="fa fa-twitter"></i></a>
+				<a class="github-button"
+				   href="https://github.com/ntkme/github-buttons/fork"
+				   data-icon="octicon-repo-forked"
+				   data-count-href="/ntkme/github-buttons/network"
+				   data-count-api="/repos/ntkme/github-buttons#forks_count"
+				   data-count-aria-label="# forks on GitHub"
+				   aria-label="Fork ntkme/github-buttons on GitHub">Fork</a>
 	    </li>
 	    <li class="repo-card__socialItem">
-		    <a href="#" class="repo-card__socialLink"><i class="fa fa-instagram"></i></a>
-	    </li>
-	    <li class="repo-card__socialItem">
-		    <a href="#" class="repo-card__socialLink"><i class="fa fa-link"></i></a>
-	    </li>
-	    <li class="repo-card__socialItem">
-		    <a href="#" class="repo-card__socialLink"><i class="fa fa-envelope"></i></a>
+				<a class="github-button"
+				   href="https://github.com/ntkme"
+				   data-count-href="/ntkme/followers"
+				   data-count-api="/users/ntkme#followers"
+				   data-count-aria-label="# followers on GitHub"
+				   aria-label="Follow @ntkme on GitHub">Follow @ntkme</a>
 	    </li>
 	  </ul>
-
 	</div>
 
 	<!--
@@ -62,13 +72,17 @@
 
 	-->
 
+	<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
 	<script src="./script-tag-data.js"></script>
-	<script id="repo-card-lib" src="./repo-card.js"
-	        data-name="Repo Card"
-	        data-author="@Amad27, @FarhadG"
-	        data-info="This is some info about Repo Card and how we were inspired to create something neat to save us time, all the while lookin' fresh."
-	        data-thumb="url(https://farm4.staticflickr.com/3022/3009079316_3caf8c7655_q.jpg)"
-	></script>
+	<script src="./repo-card.js"></script>
+	<script>
+		RepoCard.configure({
+			name: 'Repo Card JSON',
+			author: '@Amad27, @FarhadG',
+			info: 'This is some info about Repo Card and how we were inspired to create something neat to save us time, all the while looking fresh.',
+			thumb: 'url(https://farm4.staticflickr.com/3022/3009079316_3caf8c7655_q.jpg)',
+		});
+	</script>
 
 </body>
 </html>

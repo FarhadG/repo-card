@@ -1,25 +1,17 @@
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
-
-* {
-	box-sizing : border-box;
-}
-
-body {
+.repo-card {
+	box-sizing       : border-box;
 	font-family      : 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	background-color : #FFFFFF;
-	padding-top      : 100px;
 	line-height      : 1.5em;
-}
-
-.repo-card {
 	margin           : 0 auto;
 	padding-bottom   : 60px;
 	width            : 350px;
 	border           : 1px solid #CCCCCC;
 	border-radius    : 5px;
 	overflow         : hidden;
-	background-color : #FFFFFF;
-	position         : relative;
+	position         : fixed;
+	top              : 15px;
+	right            : 15px;
 }
 
 .repo-card__image-wrap {
@@ -40,14 +32,6 @@ body {
 	left             : 0;
 	background-color : rgba(51, 51, 51, 0.25);
 	z-index          : 1;
-}
-
-.repo-card__location {
-	color    : #FFFFFF;
-	z-index  : 20;
-	position : absolute;
-	top      : 5px;
-	right    : 5px;
 }
 
 .repo-card__header {
@@ -95,11 +79,11 @@ body {
 }
 
 .repo-card__thumb {
-	background      : black;
-	width           : 104px;
-	height          : 104px;
-	display         : block;
-	border-radius   : 84px;
+	background    : black;
+	width         : 104px;
+	height        : 104px;
+	display       : block;
+	border-radius : 84px;
 }
 
 .repo-card__content-wrap {
@@ -152,7 +136,7 @@ body {
 	width      : 100%;
 	display    : table;
 	border-top : 1px solid #CCCCCC;
-	padding    : 10px 0;
+	padding    : 10px 0 5px 0;
 }
 
 .repo-card__socialItem {

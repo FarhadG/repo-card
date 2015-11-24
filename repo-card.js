@@ -1,4 +1,4 @@
-var RepoCardLib = RepoCardLib || (function() {
+var RepoCard = RepoCard || (function() {
 
 		/**
 		 * RepoCard constructor
@@ -11,11 +11,11 @@ var RepoCardLib = RepoCardLib || (function() {
 			if (!(this instanceof RepoCard)) {
 				return new RepoCard();
 			}
-      this.configure();
+			var params =  ScriptTagData.getData('repo-card-lib');
+			if (params && Object.keys(params).length > 2) {
+				this.configure(params);
+			}
 		}
-
-		// Super BETA
-    //RepoCard.version = '0.0.1';
 
 		/**
 		 * Helper function for setting the content of the given dom element
@@ -43,8 +43,7 @@ var RepoCardLib = RepoCardLib || (function() {
 		 * Configures the data based on the params provided to the lib script
 		 */
 
-		RepoCard.prototype.configure = function configure() {
-      var params = ScriptTagData.getData('repo-card-lib');
+		RepoCard.prototype.configure = function configure(params) {
 			var watchers = {
 				name: function(name) {
 					return _setContent('repo-card__title', name);

@@ -3,31 +3,50 @@
 var ScriptTagData = ScriptTagData || (function() {
 
     /**
+     * Private helper function to warn the user if the script wasn't found
+     *
+     * @param scriptId
+     * @private
+     */
+
+    function _warnMessage(scriptId) {
+      console.warn('script tag with id [%s] could not be found', scriptId);
+      return null;
+    }
+
+    /**
      * Returns all of the data attributes from a given script ID
      *
      * @param scriptId
+     * @param warn
      * @returns {*}
      */
 
-    function getScript(scriptId) {
+    function getScript(scriptId, warn) {
       var scripts = document.getElementsByTagName('script');
       for (var i = 0, len = scripts.length; i < len; i++) {
         var script = scripts[i];
         var id = script.getAttribute('id');
         if (id === scriptId) return scripts[i];
       }
-      return null;
+      return warn ? _warnMessage(scriptId) : null;
     }
 
     /**
      * Returns the script tag based on the given script ID
      *
+     * @param warn
      * @param scriptId
      * @returns {{}}
      */
 
-    function getData(scriptId) {
+    function getData(scriptId, warn) {
       var script = getScript(scriptId);
+      if (!script) {
+        warn && _warnMessage(scriptId);
+        return null;
+      }
+      ;
       var data = {};
       var attributes = script.attributes;
       for (var label in attributes) {
