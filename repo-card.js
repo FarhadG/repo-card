@@ -45,20 +45,17 @@ var RepoCard = RepoCard || (function() {
 
 		RepoCard.prototype.configure = function configure(params) {
 			var watchers = {
-				name: function(name) {
+				title: function(name) {
 					return _setContent('repo-card__title', name);
 				},
-				author: function(author) {
-					return _setContent('repo-card__author', author);
+				subtitle: function(author) {
+					return _setContent('repo-card__subtitle', author);
 				},
 				info: function(info) {
 					return _setContent('repo-card__content', info);
 				},
 				thumb: function(value) {
 					return _setStyle('repo-card__thumb', 'background', value);
-				},
-				star: function() {
-
 				}
 			};
 			for (var param in params) {
