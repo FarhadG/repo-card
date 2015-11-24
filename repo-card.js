@@ -17,18 +17,13 @@ var RepoCard = RepoCard || (function() {
 			}
 		}
 
-		/**
-		 * Helper function for setting the content of the given dom element
-		 *
-		 * @param selector
-		 * @param data
-		 * @returns {*}
-		 * @private
-		 */
+    // Helper for setting a dom element's content
 
 		function _setContent(selector, data) {
 			document.getElementsByClassName(selector)[0].innerText = data;
 		}
+
+    // Helper for setting a dom element's style
 
 		function _setStyle(selector, property, value) {
 			var el = document.getElementsByClassName(selector)[0];
@@ -38,12 +33,16 @@ var RepoCard = RepoCard || (function() {
 			}
 		}
 
+    // Helper for setting the repo card's position
+
 		function _setPosition(values) {
 			var el = document.getElementsByClassName('repo-card')[0].style;
 			for(var position in values) {
 				el[position] = values[position]+'px';
 			}
 		}
+
+    // generates the github star button for a given user and repo
 
     function _generateStarButton(username, repo) {
       return [
@@ -59,6 +58,8 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
+    // generates the github fork button for a given repo
+
     function _generateForkButton(username, repo) {
       return [
         '<li class="repo-card__social-item">',
@@ -73,6 +74,8 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
+    // generates the github follow button for a given user
+
     function _generateFollowButton(username) {
       return [
         '<li class="repo-card__social-item">',
@@ -86,10 +89,29 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
+    // generates and adds the desired buttons into the dom
 
-		/**
-		 * Configures the data based on the params provided to the lib script
-		 */
+    function _generateSocialButtons(params) {
+      var buttons = [];
+      if (params.stars !== false) {
+        buttons.push(_generateStarButton(params.username, params.repo));
+      }
+      if (params.fork !== false) {
+        buttons.push(_generateForkButton(params.username, params.repo));
+      }
+      if (params.follow !== false) {
+        buttons.push(_generateFollowButton(params.username));
+      }
+      document.getElementsByClassName('repo-card__social')[0].innerHTML = buttons.join('');
+    }
+
+
+    /**
+     * Configures the data based on the params provided to the lib script
+     *
+     * @param params
+     * @returns {RepoCard}
+     */
 
 		RepoCard.prototype.configure = function configure(params) {
 			var watchers = {
@@ -102,19 +124,9 @@ var RepoCard = RepoCard || (function() {
 			};
 			for (var param in params) {
         (watchers[param]) && (watchers[param](params[param]));
-			}
-      var socialContainer = document.getElementsByClassName('repo-card__social')[0];
-      var buttons = [];
-      if (params.stars !== false) {
-        buttons.push(_generateStarButton(params.username, params.repo));
       }
-      if (params.fork !== false) {
-        buttons.push(_generateForkButton(params.username, params.repo));
-      }
-      if (params.follow !== false) {
-        buttons.push(_generateFollowButton(params.username));
-      }
-      socialContainer.innerHTML = buttons.join('');
+      _generateSocialButtons(params);
+      return this;
 		};
 
 		return new RepoCard();
