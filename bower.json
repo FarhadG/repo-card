@@ -1,0 +1,22 @@
+{
+  "name": "repo-card",
+  "description": "Give your repos some freshness with a Repo Card",
+  "main": "repo-card.js",
+  "authors": [
+    "Farhad Ghayour <me@farhadg.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "repo"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
