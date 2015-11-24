@@ -12,10 +12,38 @@ var RepoCard = RepoCard || (function() {
 				return new RepoCard();
 			}
 			var params =  ScriptTagData.getData('repo-card-lib');
-			if (params && Object.keys(params).length > 2) {
-				this.configure(params);
-			}
+      if (params && Object.keys(params).length > 2) {
+        //this.configure(params);
+      }
 		}
+
+    function _generateRepoCard(params) {
+      return [
+        '<div class="repo-card">',
+          '<div class="repo-card__image-wrap">',
+            '<div class="repo-card__thumb-wrap">',
+              '<img class="repo-card__thumb" />',
+            '</div>',
+            '<header class="repo-card__header">',
+              '<h1 class="repo-card__title">',
+                params.title,
+              '</h1>',
+              '<div class="repo-card__subtitle">',
+                params.subtitle,
+              '</div>',
+            '</header>',
+          '</div>',
+          '<div class="repo-card__content-wrap">',
+            '<div class="repo-card__content">',
+              params.info,
+          '</div>',
+          '</div>',
+          '<ul class="repo-card__social">',
+            _generateSocialButtons(params),
+          '</ul>',
+        '</div>'
+      ].join('');
+    }
 
     // Helper for setting a dom element's content
 
@@ -102,7 +130,7 @@ var RepoCard = RepoCard || (function() {
       if (params.follow !== false) {
         buttons.push(_generateFollowButton(params.username));
       }
-      document.getElementsByClassName('repo-card__social')[0].innerHTML = buttons.join('');
+      return buttons.join('');
     }
 
 
@@ -114,6 +142,7 @@ var RepoCard = RepoCard || (function() {
      */
 
 		RepoCard.prototype.configure = function configure(params) {
+      document.body.innerHTML += _generateRepoCard(params);
 			var watchers = {
         background: _setStyle.bind(null, 'repo-card__image-wrap', 'background'),
 				thumb: _setStyle.bind(null, 'repo-card__thumb', 'background'),
@@ -122,14 +151,13 @@ var RepoCard = RepoCard || (function() {
 				title: _setContent.bind(null, 'repo-card__title'),
 				position: _setPosition
 			};
-			for (var param in params) {
+      for (var param in params) {
         (watchers[param]) && (watchers[param](params[param]));
       }
-      _generateSocialButtons(params);
       return this;
 		};
 
-		return new RepoCard();
+    return new RepoCard();
 
 }());
 
