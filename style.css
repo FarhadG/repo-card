@@ -10,8 +10,6 @@
 	border-radius    : 5px;
 	overflow         : hidden;
 	position         : fixed;
-	top              : 15px;
-	right            : 15px;
 }
 
 .repo-card__image-wrap {

@@ -27,7 +27,7 @@ var RepoCard = RepoCard || (function() {
 		 */
 
 		function _setContent(selector, data) {
-			return document.getElementsByClassName(selector)[0].innerText = data;
+			document.getElementsByClassName(selector)[0].innerText = data;
 		}
 
 		function _setStyle(selector, property, value) {
@@ -36,7 +36,13 @@ var RepoCard = RepoCard || (function() {
 			if (property === 'background') {
 				el.style.backgroundSize = 'cover';
 			}
-			return;
+		}
+
+		function _setPosition(values) {
+			var el = document.getElementsByClassName('repo-card')[0].style;
+			for(var position in values) {
+				el[position] = values[position]+'px';
+			}
 		}
 
 		/**
@@ -45,18 +51,11 @@ var RepoCard = RepoCard || (function() {
 
 		RepoCard.prototype.configure = function configure(params) {
 			var watchers = {
-				title: function(name) {
-					return _setContent('repo-card__title', name);
-				},
-				subtitle: function(author) {
-					return _setContent('repo-card__subtitle', author);
-				},
-				info: function(info) {
-					return _setContent('repo-card__content', info);
-				},
-				thumb: function(value) {
-					return _setStyle('repo-card__thumb', 'background', value);
-				}
+				thumb: _setStyle.bind(null, 'repo-card__thumb', 'background'),
+				subtitle: _setContent.bind(null, 'repo-card__subtitle'),
+				info: _setContent.bind(null, 'repo-card__content'),
+				title: _setContent.bind(null, 'repo-card__title'),
+				position: _setPosition
 			};
 			for (var param in params) {
 				(watchers[param]) && (watchers[param](params[param]));
