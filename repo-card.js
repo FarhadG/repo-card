@@ -13,9 +13,11 @@ var RepoCard = RepoCard || (function() {
 			}
 			var params =  ScriptTagData.getData('repo-card-lib');
       if (params && Object.keys(params).length > 2) {
-        //this.configure(params);
+        this.configure(params);
       }
 		}
+
+    // generates the mockup for the repo card
 
     function _generateRepoCard(params) {
       return [
