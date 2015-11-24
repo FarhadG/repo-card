@@ -6,9 +6,11 @@ var gulp = require('gulp');
 
 // config
 var config = {
-  min: './repo-card.min.js',
-  src: './repo-card.js',
-  dest: './'
+  js: {
+    min: './repo-card.min.js',
+    src: './repo-card.js',
+    dest: './'
+  }
 };
 
 // minify and write contents to `.min.js` file
