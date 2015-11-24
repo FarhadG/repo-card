@@ -17,7 +17,7 @@ var RepoCard = RepoCard || (function() {
       }
 		}
 
-    // generates the mockup for the repo card
+    // generates the template for the repo card
 
     function _generateRepoCard(params) {
       return [
