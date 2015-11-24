@@ -46,7 +46,6 @@ var ScriptTagData = ScriptTagData || (function() {
         warn && _warnMessage(scriptId);
         return null;
       }
-      ;
       var data = {};
       var attributes = script.attributes;
       for (var label in attributes) {

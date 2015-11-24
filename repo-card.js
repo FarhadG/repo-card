@@ -56,6 +56,9 @@ var RepoCard = RepoCard || (function() {
 				},
 				thumb: function(value) {
 					return _setStyle('repo-card__thumb', 'background', value);
+				},
+				star: function() {
+
 				}
 			};
 			for (var param in params) {

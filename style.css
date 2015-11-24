@@ -56,7 +56,7 @@
 	padding-bottom : 6px;
 }
 
-.repo-card__author {
+.repo-card__subtitle {
 	color              : #999999;
 	font-size          : 0.875em;
 	padding-top        : 12px;
@@ -139,13 +139,15 @@
 	padding    : 10px 0 5px 0;
 }
 
-.repo-card__socialItem {
+.repo-card__social-item {
 	display    : table-cell;
 	text-align : center;
 }
 
-.repo-card__socialLink {
-	color : #999999;
+.repo-card__social-item a {
+	opacity         : 0;
+	font-size       : 0px;
+	text-decoration : none;
 }
 
 .repo-card:hover .repo-card__image-wrap {
@@ -181,7 +183,7 @@
 	transform         : translateY(-110%);
 }
 
-.repo-card:hover .repo-card__author {
+.repo-card:hover .repo-card__subtitle {
 	color             : #FFFFFF;
 	-webkit-transform : translateY(-10px);
 	-ms-transform     : translateY(-10px);
