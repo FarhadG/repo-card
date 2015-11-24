@@ -51,6 +51,7 @@ var RepoCard = RepoCard || (function() {
 
 		RepoCard.prototype.configure = function configure(params) {
 			var watchers = {
+        background: _setStyle.bind(null, 'repo-card__image-wrap', 'background'),
 				thumb: _setStyle.bind(null, 'repo-card__thumb', 'background'),
 				subtitle: _setContent.bind(null, 'repo-card__subtitle'),
 				info: _setContent.bind(null, 'repo-card__content'),

@@ -13,7 +13,6 @@
 }
 
 .repo-card__image-wrap {
-	background         : url('https://farm9.staticflickr.com/8682/15309989834_7ef83fcfca_z.jpg');
 	height             : 100px;
 	width              : 100%;
 	position           : relative;
@@ -65,23 +64,21 @@
 .repo-card__thumb-wrap {
 	width              : 110px;
 	height             : 110px;
-	background-color   : #FFFFFF;
 	padding            : 3px;
 	position           : absolute;
 	bottom             : -55px;
 	left               : 15px;
-	border-radius      : 110px;
+	border-radius      : 50%;
 	z-index            : 10;
 	-webkit-transition : -webkit-transform .3s linear;
 	transition         : transform .3s linear;
 }
 
 .repo-card__thumb {
-	background    : black;
 	width         : 104px;
 	height        : 104px;
 	display       : block;
-	border-radius : 84px;
+	border-radius : 50%;
 }
 
 .repo-card__content-wrap {
