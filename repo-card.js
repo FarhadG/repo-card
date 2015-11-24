@@ -45,6 +45,48 @@ var RepoCard = RepoCard || (function() {
 			}
 		}
 
+    function _generateStarButton(username, repo) {
+      return [
+        '<li class="repo-card__social-item">',
+          '<a class="github-button"',
+            'href="https://github.com/'+username+'/'+repo+'"',
+            'data-icon="octicon-star"',
+            'data-count-href="/'+username+'/'+repo+'/stargazers"',
+            'data-count-api="/repos/'+username+'/'+repo+'#stargazers_count"',
+            'data-count-aria-label="# stargazers on GitHub"',
+            'aria-label="Star on GitHub">Star</a>',
+        '</li>'
+      ].join('');
+    }
+
+    function _generateForkButton(username, repo) {
+      return [
+        '<li class="repo-card__social-item">',
+          '<a class="github-button"',
+            'href="https://github.com/'+username+'/'+repo+'/fork"',
+            'data-icon="octicon-repo-forked"',
+            'data-count-href="/'+username+'/'+repo+'/network"',
+            'data-count-api="/repos/'+username+'/'+repo+'#forks_count"',
+            'data-count-aria-label="# forks on GitHub"',
+            'aria-label="Fork on GitHub">Fork</a>',
+        '</li>'
+      ].join('');
+    }
+
+    function _generateFollowButton(username) {
+      return [
+        '<li class="repo-card__social-item">',
+          '<a class="github-button"',
+            'href="https://github.com/'+username+'"',
+            'data-count-href="/'+username+'/followers"',
+            'data-count-api="/users/'+username+'#followers"',
+            'data-count-aria-label="# followers on GitHub"',
+            'aria-label="Follow on GitHub">Follow @'+username+'</a>',
+        '</li>'
+      ].join('');
+    }
+
+
 		/**
 		 * Configures the data based on the params provided to the lib script
 		 */
@@ -59,8 +101,20 @@ var RepoCard = RepoCard || (function() {
 				position: _setPosition
 			};
 			for (var param in params) {
-				(watchers[param]) && (watchers[param](params[param]));
+        (watchers[param]) && (watchers[param](params[param]));
 			}
+      var socialContainer = document.getElementsByClassName('repo-card__social')[0];
+      var buttons = [];
+      if (params.stars !== false) {
+        buttons.push(_generateStarButton(params.username, params.repo));
+      }
+      if (params.fork !== false) {
+        buttons.push(_generateForkButton(params.username, params.repo));
+      }
+      if (params.follow !== false) {
+        buttons.push(_generateFollowButton(params.username));
+      }
+      socialContainer.innerHTML = buttons.join('');
 		};
 
 		return new RepoCard();
