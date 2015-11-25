@@ -30,7 +30,6 @@ var RepoCard = RepoCard || (function() {
       }
     };
 
-
     // Helper for setting a dom element's content
 
     function _setContent(selector, data) {
@@ -165,6 +164,26 @@ var RepoCard = RepoCard || (function() {
     }
 
     /**
+     * Sets the styles of the repo card given the parameters.
+     *
+     * @param params
+     * @returns {RepoCard}
+     */
+
+    RepoCard.prototype.setStyling = function setStyling(params) {
+      if (params.background) {
+        _setBackground(this.theme.selectors.background, params.background);
+      }
+      if (params.thumb) {
+        _setBackground(this.theme.selectors.thumb, params.thumb);
+      }
+      if (params.position) {
+        _setPosition(params.position)
+      }
+      return this;
+    };
+
+    /**
      * Configures the data based on the params provided to the lib script
      *
      * @param params
@@ -186,13 +205,7 @@ var RepoCard = RepoCard || (function() {
         document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
-      if (params.background) {
-        _setBackground(this.theme.selectors.background, params.background);
-      }
-      if (params.thumb) {
-        _setBackground(this.theme.selectors.thumb, params.thumb);
-      }
-      return this;
+      return this.setStyling(params);
     };
 
     return new RepoCard();
