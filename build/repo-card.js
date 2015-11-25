@@ -20,29 +20,30 @@ var RepoCard = RepoCard || (function() {
     // generates the template for the repo card
 
     function _generateRepoCard(params) {
-      return [
-        '<div class="repo-card__image-wrap">',
-        '<div class="repo-card__thumb-wrap">',
-        '<img class="repo-card__thumb" />',
-        '</div>',
-        '<header class="repo-card__header">',
-        '<h1 class="repo-card__title">',
-        params.title,
-        '</h1>',
-        '<div class="repo-card__subtitle">',
-        params.subtitle,
-        '</div>',
-        '</header>',
-        '</div>',
-        '<div class="repo-card__content-wrap">',
-        '<div class="repo-card__content">',
-        params.info,
-        '</div>',
-        '</div>',
-        '<ul class="repo-card__social">',
-        _generateSocialButtons(params),
-        '</ul>',
-      ].join('');
+      var repoCardTemplate = '@@import index.html';
+      var result = [];
+      repoCardTemplate.split('{{').forEach(function(word){
+        if (/title}}/.test(word)) {
+          result.push(params.title);
+          result.push(word.split('title}}')[1]);
+        }
+        else if (/subtitle}}/.test(word)) {
+          result.push(params.subtitle);
+          result.push(word.split('subtitle}}')[1]);
+        }
+        else if (/info}}/.test(word)) {
+          result.push(params.info);
+          result.push(word.split('info}}')[1]);
+        }
+        else if (/buttons}}/.test(word)) {
+          result.push(_generateSocialButtons(params));
+          result.push(word.split('buttons}}')[1]);
+        }
+        else {
+          result.push(word);
+        }
+      });
+      return result.join('');
     }
 
     // Helper for setting a dom element's content
@@ -160,30 +161,6 @@ var RepoCard = RepoCard || (function() {
      */
 
     RepoCard.prototype.configure = function configure(params) {
-      var repoCardTemplate = '<div class="repo-card__image-wrap">\n  <div' +
-        ' class="repo-card__thumb-wrap">\n    <img class="repo-card__thumb" />\n  </div>\n  <header class="repo-card__header">\n    <h1 class="repo-card__title">\n      {{title}}\n    </h1>\n    <div class="repo-card__subtitle">\n      {{subtitle}}\n    </div>\n  </header>\n</div>\n<div class="repo-card__content-wrap">\n  <div class="repo-card__content">\n    {{info}}\n  </div>\n</div>\n<ul class="repo-card__social">\n  {{buttons}}\n</ul>';
-      var result = [];
-      repoCardTemplate.split('{{').forEach(function(word){
-        if (/title}}/.test(word)) {
-          result.push('title');
-          result.push(word.split('title}}')[1]);
-        }
-        else if (/subtitle}}/.test(word)) {
-          result.push('subtitle');
-          result.push(word.split('subtitle}}')[1]);
-        }
-        else if (/info}}/.test(word)) {
-          result.push('info');
-          result.push(word.split('info}}')[1]);
-        }
-        else if (/buttons}}/.test(word)) {
-          result.push('buttons');
-          result.push(word.split('buttons}}')[1]);
-        }
-        else {
-          result.push(word);
-        }
-      });
       if (this.repoCardTemplateInjected) {
         var repoCardContainer = document.getElementsByClassName('repo-card')[0];
         repoCardContainer.innerHTML = _generateRepoCard(params);

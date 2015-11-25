@@ -41,8 +41,8 @@ gulp.task('scripts', function() {
       basepath: config.css.dest
     }))
     .pipe(jshint())
-    //.pipe(uglify())
-    //.pipe(concat(config.js.rename))
+    .pipe(uglify())
+    .pipe(concat(config.js.rename))
     .pipe(gulp.dest(config.js.dest));
 });
 
