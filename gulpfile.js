@@ -12,7 +12,10 @@ var config = {
   watch: './build/**/*',
   themes: './build/themes/',
   lib: {
-    src: ['./build/script-tag-data/script-tag-data.min.js', './build/repo-card.js'],
+    src: [
+      './lib/script-tag-data/script-tag-data.min.js',
+      './build/repo-card.js'
+    ],
     rename: 'repo-card.min.js',
     dest: './'
   },
@@ -26,7 +29,7 @@ gulp.task('scripts', function() {
       basepath: config.themes
     }))
     .pipe(jshint())
-    .pipe(uglify())
+    //.pipe(uglify())
     .pipe(concat(config.lib.rename))
     .pipe(gulp.dest(config.lib.dest));
 });

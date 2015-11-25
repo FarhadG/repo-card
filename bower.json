@@ -20,6 +20,7 @@
     "tests"
   ],
   "dependencies": {
-    "script-tag-data": "~0.0.2"
+    "script-tag-data": "~0.0.2",
+    "angular": "~1.4.8"
   }
 }

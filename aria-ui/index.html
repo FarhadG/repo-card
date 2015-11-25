@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet"
+        href="style.css">
+  <!-- also download all assets locally so you don't have to rely on a network for things while developing (faster) -->
+  <link rel="stylesheet"
+        href="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc4/angular-material.css">
+  <!-- this will also be part of the js file down the road -->
+  <link rel="stylesheet"
+        href="../build/themes/doodle/style.css">
+</head>
+<body>
+<div ng-controller="AppCtrl"
+     ng-cloak=""
+     class="sliderdemoBasicUsage"
+     ng-app="MyApp">
+
+  <!--
+
+    Something to get you started... finding the code below hard to modify
+    Look at the comments here and at the bottom and within the angular file
+
+  -->
+  <input type="text"
+         placeholder="title"
+         ng-model="repoCardData.title">
+  <input type="text"
+         placeholder="subtitle"
+         ng-model="repoCardData.subtitle">
+  <input type="text"
+         placeholder="repo"
+         ng-model="repoCardData.repo">
+  <input type="text"
+         placeholder="info"
+         ng-model="repoCardData.info">
+  <input type="text"
+         placeholder="thumb color or url"
+         ng-model="repoCardData.thumb">
+  <input type="text"
+         placeholder="background color or url"
+         ng-model="repoCardData.background">
+  <input type="number"
+         placeholder="top"
+         ng-model="repoCardData.position.top">
+  <input type="number"
+         placeholder="right"
+         ng-model="repoCardData.position.right">
+  <input type="number"
+         placeholder="bottom"
+         ng-model="repoCardData.position.bottom">
+  <input type="number"
+         placeholder="left"
+         ng-model="repoCardData.position.left">
+  <!-- you should look calling this function on every action on input fields on blur out -->
+  <!-- for now, we will simply use a click button so you can get an idea -->
+  <!--it works for one config for now / try to see how you'd do it :) -->
+  <button ng-click="configure()">Configure Options</button>
+
+  <!-- hard to reach this... obviously i know you'll be refactoring, lol, so i'll leave that to you :) -->
+  <md-content style="margin: 16px; padding:16px">
+    <div id="RGB"
+         ng-attr-style="border: 1px solid #333; background: rgb({{color.red}},{{color.green}},{{color.blue}})">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <img src="https://cdn3.iconfinder.com/data/icons/peelicons-vol-1/50/Facebook-512.png"
+           alt="">
+      <img src="https://cdn0.iconfinder.com/data/icons/yooicons_set01_socialbookmarks/512/social_twitter_button_blue.png"
+           alt="">
+      <img src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/dribbble_circle_color-512.png"
+           alt="">
+    </div>
+		
+    <span class="sliders">
+			<h3>RGB:</h3>
+			<div layout="">
+        <div flex="10"
+             layout=""
+             layout-align="center center">
+          <span class="md-body-1">R</span>
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+        </div>
+        <md-slider flex=""
+                   min="0"
+                   max="255"
+                   ng-model="color.red"
+                   aria-label="red"
+                   id="red-slider"
+                   class="">
+        </md-slider>
+        <div flex="20"
+             layout=""
+             layout-align="center center">
+          <input flex=""
+                 type="number"
+                 ng-model="color.red"
+                 aria-label="red"
+                 ng-attr-style="border: 1px solid #333; color: rgb({{color.red}},0,0)"
+                 aria-controls="red-slider">
+        </div>
+      </div>
+
+	<div layout="">
+    <div flex="10"
+         layout=""
+         layout-align="center center">
+      <span class="md-body-1">G</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    </div>
+    <md-slider flex=""
+               ng-model="color.green"
+               min="0"
+               max="255"
+               aria-label="green"
+               id="green-slider"
+               class="">
+    </md-slider>
+    <div flex="20"
+         layout=""
+         layout-align="center center">
+      <input flex=""
+             type="number"
+             ng-model="color.green"
+             aria-label="green"
+             ng-attr-style="border: 1px solid #333; color: rgb(0,{{color.green}},0)"
+             aria-controls="green-slider">
+    </div>
+  </div>
+
+	<div layout="">
+    <div flex="10"
+         layout=""
+         layout-align="center center">
+      <span class="md-body-1">B</span>
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+    </div>
+    <md-slider flex=""
+               ng-model="color.blue"
+               min="0"
+               max="255"
+               id="blue-slider"
+               class="md-primary">
+    </md-slider>
+    <div flex="20"
+         layout=""
+         layout-align="center center">
+      <input flex=""
+             type="number"
+             ng-model="color.blue"
+             aria-label="blue"
+             ng-attr-style="border: 1px solid #333; color: rgb(0,0,{{color.blue}})"
+             aria-controls="blue-slider">
+    </div>
+  </div>
+
+	<h3>Paragraph:</h3>
+	<textarea name="paragraph_text"
+            placeholder="Does nothing yet"
+            cols="50"
+            rows="10"></textarea>
+
+	<br>
+	<br>
+
+	<h3>Social Icons:</h3>
+	<input type="checkbox"
+         class="checkbox">Facebook
+	<input type="checkbox"
+         class="checkbox">Twitter
+	<input type="checkbox"
+         class="checkbox">Dribbble
+
+
+  </md-content>
+</div>
+</span>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js"></script>
+<script src="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.0-rc4/angular-material.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js"></script>
+<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="jquery.js"></script>
+<script src="angluar.js"></script>
+
+
+<!--
+
+  For now, we'll inject the script-tag-data.js and github buttons, but these will be injected themselves
+  by the repo card file. Look at my index.html file to see all the diff options we have for now.
+
+-->
+<script async
+        defer
+        id="github-bjs"
+        src="https://buttons.github.io/buttons.js"></script>
+<script src="../script-tag-data.js"></script>
+
+<!-- this is what the user will put on their site (check the angular file) -->
+<script src="../repo-card.min.js"></script>
+
+</body>
+
+</html>

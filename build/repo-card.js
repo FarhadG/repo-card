@@ -100,7 +100,6 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
-
     // generates and adds the desired buttons into the dom
 
     function _generateSocialButtons(params) {
@@ -165,13 +164,32 @@ var RepoCard = RepoCard || (function() {
     }
 
     /**
+     * Sets theme name from the given set of themes
+     *
+     * @param name
+     * @returns {RepoCard}
+     */
+
+    RepoCard.prototype.setTheme = function setTheme(name) {
+      var theme = RepoCard.themes[name];
+      if (theme) {
+        this.theme = theme;
+      }
+      else {
+        this.theme = RepoCard.themes['doodle'];
+        console.error('Theme [ %s ] does not exist', name);
+      }
+      return this;
+    };
+
+    /**
      * Sets the styles of the repo card given the parameters.
      *
-     * @param params
      * @returns {RepoCard}
      */
 
     RepoCard.prototype.setStyling = function setStyling(params) {
+      var params = this.params = Object.assign(this.params, params);
       if (params.background) {
         _setBackground(this.theme.selectors.background, params.background);
       }
@@ -192,21 +210,25 @@ var RepoCard = RepoCard || (function() {
      */
 
     RepoCard.prototype.configure = function configure(params) {
-      this.theme = RepoCard.themes[params.theme || 'doodle'];
+      this.params = this.params ? Object.assign(this.params, params) : params;
+      this.setTheme(this.params.theme);
       if (this.repoCardTemplateInjected) {
         var repoCardContainer = document.getElementById('repo-card');
-        repoCardContainer.innerHTML = _generateRepoCard(params, this.theme.template);
+        repoCardContainer.innerHTML = _generateRepoCard(this.params, this.theme.template);
       }
       else {
         var el = document.createElement('div');
         el.id = 'repo-card';
-        el.innerHTML = _generateRepoCard(params, this.theme.template);
+        el.innerHTML = _generateRepoCard(this.params, this.theme.template);
         document.body.appendChild(el);
-        document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(params));
+        document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params));
         document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
-      return this.setStyling(params);
+      if (this.params.background || this.params.thumb || this.params.position) {
+        this.setStyling(this.params);
+      }
+      return this;
     };
 
     return new RepoCard();

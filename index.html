@@ -18,13 +18,14 @@
 <!-- another way of adding repo cards: a script tag with another configuring the options -->
 <script src="./repo-card.min.js"></script>
 <script>
+
   RepoCard
     .configure({
       theme: 'doodle',
       repo: 'init',
       username: 'farhadg',
       title: 'Init',
-      subtitle: '<a href="google.com">@farhadg</a>',
+      subtitle: '<a href="http://www.github.com/farhadg" target="_blank">@farhadg</a>',
       thumb: 'red',
       background: 'black',
       info: 'Being able to quickly navigate to the oldest commit in a repo is quite helpful. Go ahead and drag the bookmarklet onto your bookmark bar and click it whenever you would like',
@@ -33,6 +34,7 @@
         left: 15
       }
     })
+
     .setStyling({
       background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
       thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
@@ -40,7 +42,24 @@
         top: 15,
         right: 15
       }
-    });
+    })
+
+    .setTheme('cool')
+
+    .configure({
+      repo: 'mesh-code-editor'
+    })
+
+    .setStyling({
+      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
+      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
+      position: {
+        bottom: 15,
+        right: 15
+      }
+    })
+
+
 </script>
 
 </body>
