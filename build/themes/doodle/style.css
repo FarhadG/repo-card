@@ -9,7 +9,6 @@
   border: 1px solid #CCCCCC;
   border-radius: 5px;
   overflow: hidden;
-  position: fixed;
 }
 
 #repo-card a {

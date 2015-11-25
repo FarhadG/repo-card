@@ -27,14 +27,6 @@ var RepoCard = RepoCard || (function() {
           background: 'repo-card__image-wrap',
           thumb: 'repo-card__thumb'
         }
-      },
-      test: {
-        template: '@@import test/index.html',
-        style: '@@import test/style.css',
-        selectors: {
-          background: 'repo-card__image-wrap',
-          thumb: 'repo-card__thumb'
-        }
       }
     };
 
