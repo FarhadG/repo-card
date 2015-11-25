@@ -1,5 +1,6 @@
 // module dependencies
 
+var inject = require('gulp-js-text-inject');
 var minifyCss = require('gulp-minify-css');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -15,7 +16,7 @@ var config = {
     dest: './dist/'
   },
   css: {
-    src: './style.css',
+    src: './build/style.css',
     dest: './dist/'
   }
 };
@@ -32,6 +33,9 @@ gulp.task('styles', function() {
 
 gulp.task('scripts', function() {
   gulp.src(config.js.src)
+    .pipe(inject({
+      basepath: config.css.dest
+    }))
     .pipe(jshint())
     .pipe(uglify())
     .pipe(concat(config.js.rename))
