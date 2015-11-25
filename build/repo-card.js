@@ -22,7 +22,7 @@ var RepoCard = RepoCard || (function() {
     function _generateRepoCard(params) {
       var repoCardTemplate = '@@import index.html';
       var result = [];
-      repoCardTemplate.split('{{').forEach(function(word){
+      repoCardTemplate.split('{{').forEach(function(word) {
         if (/title}}/.test(word)) {
           result.push(params.title);
           result.push(word.split('title}}')[1]);
@@ -190,6 +190,6 @@ var RepoCard = RepoCard || (function() {
 
     return new RepoCard();
 
-  }());
+}());
 
 

@@ -11,7 +11,14 @@
     "url": "git+https://FarhadG@bitbucket.org/FarhadG/repo-card.git"
   },
   "keywords": [
-    "repo"
+    "repo",
+    "card",
+    "repo card",
+    "github profile",
+    "repo profile",
+    "github stars",
+    "github follow",
+    'github fork'
   ],
   "author": "",
   "license": "MIT",
@@ -21,7 +28,6 @@
     "gulp-concat": "^2.6.0",
     "gulp-js-text-inject": "^1.0.0",
     "gulp-jshint": "^2.0.0",
-    "gulp-minify-css": "^1.2.1",
     "gulp-uglify": "^1.5.1"
   }
 }
