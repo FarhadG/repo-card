@@ -125,6 +125,17 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
+    // creates the script for the github buttons
+
+    function _generateGithubButtonsScript() {
+      var script = document.createElement('script');
+      script.src = 'https://buttons.github.io/buttons.js';
+      script.id = 'github-bjs';
+      script.attributes.async = '';
+      script.attributes.defer = '';
+      return script;
+    }
+
     // generates and adds the desired buttons into the dom
 
     function _generateSocialButtons(params) {
@@ -159,6 +170,7 @@ var RepoCard = RepoCard || (function() {
         el.innerHTML = _generateRepoCard(params);
         document.body.appendChild(el);
         document.getElementsByTagName('head')[0].appendChild(_generateStyling());
+        document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
       var watchers = {

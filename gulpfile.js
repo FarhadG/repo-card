@@ -10,7 +10,7 @@ var gulp = require('gulp');
 
 var config = {
   js: {
-    src: ['./build/repo-card.js','./build/script-tag-data/script-tag-data.min.js'],
+    src: ['./build/script-tag-data/script-tag-data.min.js', './build/repo-card.js'],
     rename: 'repo-card.min.js',
     dest: './dist/'
   },
