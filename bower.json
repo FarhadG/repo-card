@@ -1,7 +1,8 @@
 {
   "name": "repo-card",
   "description": "Give your repos some freshness with a Repo Card",
-  "main": "repo-card.js",
+  "version": "0.0.1",
+  "main": "repo-card.min.js",
   "authors": [
     "Farhad Ghayour <me@farhadg.com>"
   ],
@@ -15,9 +16,10 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    "public/lib",
+    "lib",
     "test",
-    "tests"
+    "tests",
+    "dashboard"
   ],
   "dependencies": {
     "script-tag-data": "~0.0.2",

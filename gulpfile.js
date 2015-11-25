@@ -1,6 +1,7 @@
 // module dependencies
 
 var inject = require('gulp-js-text-inject');
+var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
@@ -13,15 +14,16 @@ var config = {
   themes: './build/themes/',
   lib: {
     src: [
-      './lib/script-tag-data/script-tag-data.min.js',
+      './lib/script-tag-data/script-tag-data.js',
       './build/repo-card.js'
     ],
-    rename: 'repo-card.min.js',
+    rename: 'repo-card.js',
+    minify: 'repo-card.min.js',
     dest: './'
   },
 };
 
-// minify and write contents to `.min.js` file
+// minify and write contents
 
 gulp.task('scripts', function() {
   gulp.src(config.lib.src)
@@ -29,8 +31,10 @@ gulp.task('scripts', function() {
       basepath: config.themes
     }))
     .pipe(jshint())
-    //.pipe(uglify())
     .pipe(concat(config.lib.rename))
+    .pipe(uglify())
+    .pipe(rename(config.lib.minify))
+    .pipe(gulp.dest(config.lib.dest))
     .pipe(gulp.dest(config.lib.dest));
 });
 
