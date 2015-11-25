@@ -11,34 +11,21 @@ var gulp = require('gulp');
 
 var config = {
   watch: './build/**/*',
+  theme: './build/themes/doodle/',
   js: {
     src: ['./build/script-tag-data/script-tag-data.min.js', './build/repo-card.js'],
     rename: 'repo-card.min.js',
     dest: './dist/'
   },
-  css: {
-    src: './build/style.css',
-    dest: './dist/'
-  }
 };
 
-// compile css
-
-gulp.task('styles', function() {
-  return gulp.src(config.css.src)
-    .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest(config.css.dest));
-});
 
 // minify and write contents to `.min.js` file
 
 gulp.task('scripts', function() {
   gulp.src(config.js.src)
     .pipe(inject({
-      basepath: './build/'
-    }))
-    .pipe(inject({
-      basepath: config.css.dest
+      basepath: config.theme
     }))
     .pipe(jshint())
     .pipe(uglify())
@@ -54,5 +41,5 @@ gulp.task('watch', function() {
 
 // command line task commands
 
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('build', ['scripts']);
 gulp.task('default', ['build', 'watch']);
