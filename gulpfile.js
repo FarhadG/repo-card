@@ -32,9 +32,9 @@ gulp.task('scripts', function() {
     }))
     .pipe(jshint())
     .pipe(concat(config.lib.rename))
+    .pipe(gulp.dest(config.lib.dest))
     .pipe(uglify())
     .pipe(rename(config.lib.minify))
-    .pipe(gulp.dest(config.lib.dest))
     .pipe(gulp.dest(config.lib.dest));
 });
 
