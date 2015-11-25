@@ -160,6 +160,7 @@ var RepoCard = RepoCard || (function() {
      */
 
     RepoCard.prototype.configure = function configure(params) {
+      var test = '@@import index.html';
       if (this.repoCardTemplateInjected) {
         var repoCardContainer = document.getElementsByClassName('repo-card')[0];
         repoCardContainer.innerHTML = _generateRepoCard(params);

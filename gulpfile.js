@@ -35,11 +35,14 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
   gulp.src(config.js.src)
     .pipe(inject({
+      basepath: './build/'
+    }))
+    .pipe(inject({
       basepath: config.css.dest
     }))
     .pipe(jshint())
-    .pipe(uglify())
-    .pipe(concat(config.js.rename))
+    //.pipe(uglify())
+    //.pipe(concat(config.js.rename))
     .pipe(gulp.dest(config.js.dest));
 });
 
