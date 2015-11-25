@@ -6,14 +6,16 @@
 </head>
 <body>
 
-<!--one way of adding repo cards which needs the ID and the data points
-<script src="./repo-card.min.js"
-        id="repo-card-lib"
-        data-repo="init"
-        data-username="farhadg"
-        data-title="Repo Card">
-</script>
--->
+
+
+<!--one way of adding repo cards which needs the ID and the data points-->
+<!--<script src="./repo-card.min.js"-->
+        <!--id="repo-card-lib"-->
+        <!--data-repo="init"-->
+        <!--data-username="farhadg"-->
+        <!--data-title="Repo Card">-->
+<!--</script>-->
+
 
 <!-- another way of adding repo cards: a script tag with another configuring the options -->
 <script src="./repo-card.js"></script>
@@ -26,36 +28,40 @@
       username: 'farhadg',
       title: 'Init',
       subtitle: '<a href="http://www.github.com/farhadg" target="_blank">@farhadg</a>',
-      thumb: 'red',
-      background: 'black',
-      info: 'Being able to quickly navigate to the oldest commit in a repo is quite helpful. Go ahead and drag the bookmarklet onto your bookmark bar and click it whenever you would like',
+      thumb: 'green',
+      background: 'red',
+      info: 'djksjdklsajdsajlkdjsalk',
       position: {
-        top: 15,
+        bottom: 15,
         left: 15
       }
     })
-
-//    .setStyling({
-//      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
-//      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
-//      position: {
-//        top: 15,
-//        right: 15
-//      }
-//    })
-//
-//    .configure({
-//      repo: 'mesh-code-editor'
-//    })
-//
-//    .setStyling({
-//      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
-//      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
-//      position: {
-//        top: 15,
-//        right: 15
-//      }
-//    })
+    .configure({
+      repo: 'mesh-code-editor'
+    })
+    .setTheme('asjkajsklajskl')
+    .setStyling({
+      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
+      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
+      position: {
+        top: 15,
+        right: 15
+      }
+    })
+    .configure({
+      theme: 'test',
+      repo: 'init',
+      username: 'farhadg',
+      title: 'Init',
+      subtitle: '<a href="http://www.github.com/farhadg" target="_blank">@farhadg</a>',
+      thumb: 'green',
+      background: 'red',
+      info: 'djksjdklsajdsajlkdjsalk',
+      position: {
+        bottom: 15,
+        left: 15
+      }
+    })
 
 </script>
 

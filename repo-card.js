@@ -254,7 +254,7 @@ var RepoCard = RepoCard || (function() {
       }
       else {
         this.theme = RepoCard.themes['doodle'];
-        console.warn('A Repo Card theme was not provided -- reverting to default');
+        console.warn('"%s" is an invalid Repo Card theme. Reverting to default', name);
       }
       return this;
     };
