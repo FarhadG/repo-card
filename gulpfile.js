@@ -10,6 +10,7 @@ var gulp = require('gulp');
 // config
 
 var config = {
+  watch: './build/**/*',
   js: {
     src: ['./build/script-tag-data/script-tag-data.min.js', './build/repo-card.js'],
     rename: 'repo-card.min.js',
@@ -45,7 +46,7 @@ gulp.task('scripts', function() {
 // watch the js file for changes
 
 gulp.task('watch', function() {
-  gulp.watch(config.src, ['build']);
+  gulp.watch(config.watch, ['build']);
 });
 
 // command line task commands
