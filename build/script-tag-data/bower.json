@@ -1,0 +1,27 @@
+{
+  "name": "script-tag-data",
+  "description": "Set and read data from a `<script>` tag",
+  "version": "0.0.2",
+  "main": "script-tag-data.min.js",
+  "authors": [
+    "farhad ghayour"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "script",
+    "tag",
+    "data",
+    "params",
+    "options"
+  ],
+  "moduleType": [],
+  "homepage": "https://www.github.com/farhadg/script-tag-data",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}

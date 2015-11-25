@@ -18,5 +18,8 @@
     "public/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "script-tag-data": "~0.0.2"
+  }
 }

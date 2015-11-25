@@ -1,17 +1,17 @@
 // module dependencies
 
 var minifyCss = require('gulp-minify-css');
+var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
-var rename = require('gulp-rename');
 var gulp = require('gulp');
 
 // config
 
 var config = {
   js: {
-    src: './repo-card.js',
-    min: 'repo-card.min.js',
+    src: ['./build/repo-card.js','./build/script-tag-data/script-tag-data.min.js'],
+    rename: 'repo-card.min.js',
     dest: './dist/'
   },
   css: {
@@ -34,7 +34,7 @@ gulp.task('scripts', function() {
   gulp.src(config.js.src)
     .pipe(jshint())
     .pipe(uglify())
-    .pipe(rename(config.js.min))
+    .pipe(concat(config.js.rename))
     .pipe(gulp.dest(config.js.dest));
 });
 
