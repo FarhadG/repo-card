@@ -10,7 +10,7 @@ var gulp = require('gulp');
 
 var config = {
   watch: './build/**/*',
-  theme: './build/themes/doodle/',
+  themes: './build/themes/',
   lib: {
     src: ['./build/script-tag-data/script-tag-data.min.js', './build/repo-card.js'],
     rename: 'repo-card.min.js',
@@ -18,13 +18,12 @@ var config = {
   },
 };
 
-
 // minify and write contents to `.min.js` file
 
 gulp.task('scripts', function() {
   gulp.src(config.lib.src)
     .pipe(inject({
-      basepath: config.theme
+      basepath: config.themes
     }))
     .pipe(jshint())
     .pipe(uglify())
