@@ -93,7 +93,7 @@ var RepoCard = RepoCard || (function() {
     function _generateStarButton(username, repo) {
       return [
         '<li id="repo-card__social-item">',
-        '<a id="github-button"',
+        '<a class="github-button"',
         'href="https://github.com/' + username + '/' + repo + '"',
         'data-icon="octicon-star"',
         'data-count-href="/' + username + '/' + repo + '/stargazers"',
@@ -109,7 +109,7 @@ var RepoCard = RepoCard || (function() {
     function _generateForkButton(username, repo) {
       return [
         '<li id="repo-card__social-item">',
-        '<a id="github-button"',
+        '<a class="github-button"',
         'href="https://github.com/' + username + '/' + repo + '/fork"',
         'data-icon="octicon-repo-forked"',
         'data-count-href="/' + username + '/' + repo + '/network"',
@@ -125,7 +125,7 @@ var RepoCard = RepoCard || (function() {
     function _generateFollowButton(username) {
       return [
         '<li id="repo-card__social-item">',
-        '<a id="github-button"',
+        '<a class="github-button"',
         'href="https://github.com/' + username + '"',
         'data-count-href="/' + username + '/followers"',
         'data-count-api="/users/' + username + '#followers"',
