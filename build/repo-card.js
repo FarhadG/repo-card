@@ -129,9 +129,9 @@ var RepoCard = RepoCard || (function() {
 
     // generates the styling within a <style> tag
 
-    function _generateStylingTag(params) {
+    function _generateStylingTag(theme) {
       var tag = document.createElement('style');
-      tag.innerHTML = RepoCard.themes[params.theme || 'doodle'].style;
+      tag.innerHTML = RepoCard.themes[theme || 'doodle'].style;
       return tag;
     }
 
@@ -221,7 +221,7 @@ var RepoCard = RepoCard || (function() {
         el.id = 'repo-card';
         el.innerHTML = _generateRepoCard(this.params, this.theme.template);
         document.body.appendChild(el);
-        document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params));
+        document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params.theme));
         document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
