@@ -30,33 +30,6 @@ var RepoCard = RepoCard || (function() {
       }
     };
 
-    // generates the template for the repo card
-
-    function _generateRepoCard(params, template) {
-      var result = [];
-      template.split('{{').forEach(function(word) {
-        if (/subtitle}}/.test(word)) {
-          result.push(params.subtitle);
-          result.push(word.split('subtitle}}')[1]);
-        }
-        else if (/title}}/.test(word)) {
-          result.push(params.title);
-          result.push(word.split('title}}')[1]);
-        }
-        else if (/info}}/.test(word)) {
-          result.push(params.info);
-          result.push(word.split('info}}')[1]);
-        }
-        else if (/buttons}}/.test(word)) {
-          result.push(_generateSocialButtons(params));
-          result.push(word.split('buttons}}')[1]);
-        }
-        else {
-          result.push(word);
-        }
-      });
-      return result.join('');
-    }
 
     // Helper for setting a dom element's content
 
@@ -78,14 +51,6 @@ var RepoCard = RepoCard || (function() {
       for (var position in values) {
         el[position] = values[position] + 'px';
       }
-    }
-
-    // generates the styling within a <style> tag
-
-    function _generateStyling(params) {
-      var tag = document.createElement('style');
-      tag.innerHTML = RepoCard.themes[params.theme || 'doodle'].style;
-      return tag;
     }
 
     // generates the github star button for a given user and repo
@@ -135,16 +100,6 @@ var RepoCard = RepoCard || (function() {
       ].join('');
     }
 
-    // creates the script for the github buttons
-
-    function _generateGithubButtonsScript() {
-      var script = document.createElement('script');
-      script.src = 'https://buttons.github.io/buttons.js';
-      script.id = 'github-bjs';
-      script.attributes.async = '';
-      script.attributes.defer = '';
-      return script;
-    }
 
     // generates and adds the desired buttons into the dom
 
@@ -160,6 +115,53 @@ var RepoCard = RepoCard || (function() {
         buttons.push(_generateFollowButton(params.username));
       }
       return buttons.join('');
+    }
+
+    // creates the script for the github buttons
+
+    function _generateGithubButtonsScript() {
+      var script = document.createElement('script');
+      script.src = 'https://buttons.github.io/buttons.js';
+      script.id = 'github-bjs';
+      script.attributes.async = '';
+      script.attributes.defer = '';
+      return script;
+    }
+
+    // generates the styling within a <style> tag
+
+    function _generateStylingTag(params) {
+      var tag = document.createElement('style');
+      tag.innerHTML = RepoCard.themes[params.theme || 'doodle'].style;
+      return tag;
+    }
+
+    // generates the template for the repo card
+
+    function _generateRepoCard(params, template) {
+      var result = [];
+      template.split('{{').forEach(function(word) {
+        if (/subtitle}}/.test(word)) {
+          result.push(params.subtitle);
+          result.push(word.split('subtitle}}')[1]);
+        }
+        else if (/title}}/.test(word)) {
+          result.push(params.title);
+          result.push(word.split('title}}')[1]);
+        }
+        else if (/info}}/.test(word)) {
+          result.push(params.info);
+          result.push(word.split('info}}')[1]);
+        }
+        else if (/buttons}}/.test(word)) {
+          result.push(_generateSocialButtons(params));
+          result.push(word.split('buttons}}')[1]);
+        }
+        else {
+          result.push(word);
+        }
+      });
+      return result.join('');
     }
 
     /**
@@ -180,17 +182,15 @@ var RepoCard = RepoCard || (function() {
         el.id = 'repo-card';
         el.innerHTML = _generateRepoCard(params, this.theme.template);
         document.body.appendChild(el);
-        document.getElementsByTagName('head')[0].appendChild(_generateStyling(params));
+        document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(params));
         document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
-      for (var param in params) {
-        if (param === 'background') {
-          _setBackground(this.theme.selectors.background, params[param]);
-        }
-        else if (param === 'thumb') {
-          _setBackground(this.theme.selectors.thumb, params[param]);
-        }
+      if (params.background) {
+        _setBackground(this.theme.selectors.background, params.background);
+      }
+      if (params.thumb) {
+        _setBackground(this.theme.selectors.thumb, params.thumb);
       }
       return this;
     };
