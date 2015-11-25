@@ -47,6 +47,7 @@ var RepoCard = RepoCard || (function() {
 
     function _setPosition(values) {
       var el = document.getElementById('repo-card').style;
+      el.top = el.right = el.bottom = el.left = 'initial';
       for (var position in values) {
         el[position] = values[position] + 'px';
       }

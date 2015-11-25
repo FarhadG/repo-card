@@ -6,13 +6,12 @@
 </head>
 <body>
 
-<!-- one way of adding repo cards which needs the ID and the data points
-<script src="./repo-card.js"
+<!--one way of adding repo cards which needs the ID and the data points
+<script src="./repo-card.min.js"
         id="repo-card-lib"
         data-repo="init"
         data-username="farhadg"
-        data-title="Repo Card"
-        ...>
+        data-title="Repo Card">
 </script>
 -->
 
@@ -26,17 +25,17 @@
       username: 'farhadg',
       title: 'Init',
       subtitle: '@farhadg',
-      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
-      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
+      thumb: 'red',
+      background: 'black',
       info: 'Being able to quickly navigate to the oldest commit in a repo is quite helpful. Go ahead and drag the bookmarklet onto your bookmark bar and click it whenever you would like',
       position: {
-        bottom: 15,
-        right: 15
+        top: 15,
+        left: 15
       }
     })
-    // you can chain and set just styling if you'd like (overrides the prev state)
     .setStyling({
-      background: 'green',
+      background: 'url(http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/dark_embroidery.png)',
+      thumb: 'url(https://avatars0.githubusercontent.com/u/1647596?v=3&s=460)',
       position: {
         top: 15,
         right: 15
