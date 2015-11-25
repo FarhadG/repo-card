@@ -27,6 +27,14 @@ var RepoCard = RepoCard || (function() {
           background: 'repo-card__image-wrap',
           thumb: 'repo-card__thumb'
         }
+      },
+      test: {
+        template: '@@import test/index.html',
+        style: '@@import test/style.css',
+        selectors: {
+          background: 'repo-card__image-wrap',
+          thumb: 'repo-card__thumb'
+        }
       }
     };
 
@@ -46,7 +54,8 @@ var RepoCard = RepoCard || (function() {
     // Helper for setting the repo card's position
 
     function _setPosition(values) {
-      var el = document.getElementById('repo-card').style;
+      var el = document.getElementById('repo-card-container').style;
+      el.position = 'fixed';
       el.top = el.right = el.bottom = el.left = 'initial';
       for (var position in values) {
         el[position] = values[position] + 'px';
@@ -177,7 +186,7 @@ var RepoCard = RepoCard || (function() {
       }
       else {
         this.theme = RepoCard.themes['doodle'];
-        console.error('Theme [ %s ] does not exist', name);
+        console.warn('A Repo Card theme was not provided -- reverting to default');
       }
       return this;
     };
@@ -211,14 +220,16 @@ var RepoCard = RepoCard || (function() {
 
     RepoCard.prototype.configure = function configure(params) {
       this.params = this.params ? Object.assign(this.params, params) : params;
-      this.setTheme(this.params.theme);
+      if (!this.theme || this.params.theme) {
+        this.setTheme(this.params.theme);
+      }
       if (this.repoCardTemplateInjected) {
-        var repoCardContainer = document.getElementById('repo-card');
+        var repoCardContainer = document.getElementById('repo-card-container');
         repoCardContainer.innerHTML = _generateRepoCard(this.params, this.theme.template);
       }
       else {
         var el = document.createElement('div');
-        el.id = 'repo-card';
+        el.id = 'repo-card-container';
         el.innerHTML = _generateRepoCard(this.params, this.theme.template);
         document.body.appendChild(el);
         document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params.theme));
@@ -233,6 +244,6 @@ var RepoCard = RepoCard || (function() {
 
     return new RepoCard();
 
-}());
+  }());
 
 
