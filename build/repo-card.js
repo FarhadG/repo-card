@@ -74,7 +74,7 @@ var RepoCard = RepoCard || (function() {
 
     function _generateStyling() {
       var tag = document.createElement('style');
-      tag.innerHTML = '@@import style.css';
+      tag.innerHTML = '.repo-card {\n  box-sizing       : border-box;\n  font-family      : \'Helvetica Neue\', Helvetica, Arial, sans-serif;\n  background-color : #FFFFFF;\n  line-height      : 1.5em;\n  margin           : 0 auto;\n  padding-bottom   : 60px;\n  width            : 350px;\n  border           : 1px solid #CCCCCC;\n  border-radius    : 5px;\n  overflow         : hidden;\n  position         : fixed\n}\n\n.repo-card__image-wrap {\n  height             : 100px;\n  width              : 100%;\n  position           : relative;\n  -webkit-transition : height .3s ease-in;\n  transition         : height .3s ease-in\n}\n\n.repo-card__image-wrap:before {\n  content          : \'\';\n  width            : 100%;\n  height           : 100%;\n  position         : absolute;\n  top              : 0;\n  left             : 0;\n  background-color : rgba(51, 51, 51, .25);\n  z-index          : 1\n}\n\n.repo-card__header {\n  text-align         : left;\n  padding-left       : 140px;\n  position           : absolute;\n  bottom             : -28px;\n  left               : 0;\n  color              : #FFFFFF;\n  z-index            : 20;\n  -webkit-transition : -webkit-transform .3s ease-in;\n  transition         : transform .3s ease-in\n}\n\n.repo-card__title {\n  margin         : 0;\n  color          : #FFFFFF;\n  font-size      : 1.125em;\n  font-weight    : 400;\n  z-index        : 10;\n  position       : relative;\n  padding-bottom : 6px\n}\n\n.repo-card__subtitle {\n  color              : #999999;\n  font-size          : .875em;\n  padding-top        : 12px;\n  -webkit-transition : -webkit-transform .3s ease-in;\n  transition         : transform .3s ease-in\n}\n\n.repo-card__thumb-wrap {\n  width              : 110px;\n  height             : 110px;\n  padding            : 3px;\n  position           : absolute;\n  bottom             : -55px;\n  left               : 15px;\n  border-radius      : 50%;\n  z-index            : 10;\n  -webkit-transition : -webkit-transform .3s linear;\n  transition         : transform .3s linear\n}\n\n.repo-card__thumb {\n  width         : 104px;\n  height        : 104px;\n  display       : block;\n  border-radius : 50%\n}\n\n.repo-card__content-wrap {\n  padding-bottom : 0;\n  min-height     : 50px;\n  position       : relative\n}\n\n.repo-card__content-wrap::after {\n  content            : \'\';\n  position           : absolute;\n  top                : -10px;\n  left               : 50%;\n  z-index            : 20;\n  width              : 0;\n  height             : 0;\n  border-style       : solid;\n  border-width       : 0 10px 10px;\n  border-color       : transparent transparent #FFFFFF;\n  -webkit-transform  : translateY(10px);\n  -ms-transform      : translateY(10px);\n  transform          : translateY(10px);\n  -webkit-transition : -webkit-transform .3s ease-in;\n  transition         : transform .3s ease-in;\n  margin-left        : -10px\n}\n\n.repo-card__content {\n  padding            : 30px 20px 10px;\n  text-align         : left;\n  font-size          : .875em;\n  color              : #666666;\n  max-height         : 0;\n  overflow           : hidden;\n  -webkit-transform  : translateY(-10%);\n  -ms-transform      : translateY(-10%);\n  transform          : translateY(-10%);\n  -webkit-transition : max-height .3s ease-in, opacity .3s ease-in;\n  transition         : max-height .3s ease-in, opacity .3s ease-in;\n  opacity            : 0;\n  visibility         : hidden\n}\n\n.repo-card__social {\n  position   : absolute;\n  bottom     : 0;\n  left       : 0;\n  list-style : none;\n  margin     : 0;\n  width      : 100%;\n  display    : table;\n  border-top : 1px solid #CCCCCC;\n  padding    : 10px 0 5px\n}\n\n.repo-card__social-item {\n  display    : table-cell;\n  text-align : center\n}\n\n.repo-card__social-item a {\n  opacity         : 0;\n  font-size       : 0;\n  text-decoration : none\n}\n\n.repo-card:hover .repo-card__image-wrap {\n  height : 150px\n}\n\n.repo-card:hover .repo-card__content-wrap:after {\n  -webkit-transform : translateY(0);\n  -ms-transform     : translateY(0);\n  transform         : translateY(0)\n}\n\n.repo-card:hover .repo-card__content {\n  max-height         : 200px;\n  opacity            : 1;\n  visibility         : visible;\n  -webkit-transform  : translateY(0);\n  -ms-transform      : translateY(0);\n  transform          : translateY(0);\n  -webkit-transition : max-height .3s ease-in, opacity .3s ease-in;\n  transition         : max-height .3s ease-in, opacity .3s ease-in\n}\n\n.repo-card:hover .repo-card__thumb-wrap {\n  -webkit-transform : translateY(-70%);\n  -ms-transform     : translateY(-70%);\n  transform         : translateY(-70%)\n}\n\n.repo-card:hover .repo-card__header {\n  -webkit-transform : translateY(-110%);\n  -ms-transform     : translateY(-110%);\n  transform         : translateY(-110%)\n}\n\n.repo-card:hover .repo-card__subtitle {\n  color             : #FFFFFF;\n  -webkit-transform : translateY(-10px);\n  -ms-transform     : translateY(-10px);\n  transform         : translateY(-10px)\n}';
       return tag;
     }
 
@@ -160,7 +160,30 @@ var RepoCard = RepoCard || (function() {
      */
 
     RepoCard.prototype.configure = function configure(params) {
-      var test = '@@import index.html';
+      var repoCardTemplate = '<div class="repo-card__image-wrap">\n  <div' +
+        ' class="repo-card__thumb-wrap">\n    <img class="repo-card__thumb" />\n  </div>\n  <header class="repo-card__header">\n    <h1 class="repo-card__title">\n      {{title}}\n    </h1>\n    <div class="repo-card__subtitle">\n      {{subtitle}}\n    </div>\n  </header>\n</div>\n<div class="repo-card__content-wrap">\n  <div class="repo-card__content">\n    {{info}}\n  </div>\n</div>\n<ul class="repo-card__social">\n  {{buttons}}\n</ul>';
+      var result = [];
+      repoCardTemplate.split('{{').forEach(function(word){
+        if (/title}}/.test(word)) {
+          result.push('title');
+          result.push(word.split('title}}')[1]);
+        }
+        else if (/subtitle}}/.test(word)) {
+          result.push('subtitle');
+          result.push(word.split('subtitle}}')[1]);
+        }
+        else if (/info}}/.test(word)) {
+          result.push('info');
+          result.push(word.split('info}}')[1]);
+        }
+        else if (/buttons}}/.test(word)) {
+          result.push('buttons');
+          result.push(word.split('buttons}}')[1]);
+        }
+        else {
+          result.push(word);
+        }
+      });
       if (this.repoCardTemplateInjected) {
         var repoCardContainer = document.getElementsByClassName('repo-card')[0];
         repoCardContainer.innerHTML = _generateRepoCard(params);
