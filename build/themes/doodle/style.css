@@ -12,6 +12,15 @@
   position: fixed;
 }
 
+#repo-card a {
+  color: #999;
+  transition: all 0.2s ease;
+}
+
+#repo-card a:hover {
+  color: #CC1D3E;
+}
+
 #repo-card__image-wrap {
   height: 100px;
   width: 100%;
