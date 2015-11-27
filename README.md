@@ -3,16 +3,17 @@ Repo Card
 
 Give your repos some freshness with a Repo Card.
 
-## About
-
 I often get lazy adding a profile to my repositories, especially when I'd like for them to get forked, starred, etc. 
 If you've been there, then Repo Cards are for you.
 
+### Demo
+
 Here's one of my own repos with one: <a target="_blank" href="https://www.github.com/farhadg/2048-cube">2048 Cube</a>
+
 
 ## Usage
 
-You can add a repo card in many different ways to your projects. Choose one that's easiest for you:
+You can add a repo card in many different ways. Choose one that's easiest for you:
 
 Reference the script file via the CDN
 ```javascript
@@ -24,9 +25,9 @@ Install via Bower
 $ bower install repo-card --save
 ```
 
-Then, you simply configure the Repo card
+Then, you simply configure the Repo card with your info
 ```javascript
-// Once you've sourced the repo from either the CDN or locally, you use the data-attributes to configure the repo card
+// Once sourced from either a CDN or locally, you use the data-attributes to configure the repo card
 <script src="./repo-card.min.js" id="repo-card-lib"
         data-repo="init"
         data-username="farhadg"
@@ -45,6 +46,10 @@ Or, you configure it within your app as seen in the `script` tag below
       title: 'Init',
       subtitle: '@farhadg',
       info: 'A quick way to get you to the first commit of any GitHub repo (tracks branches too)',
+      position: {
+        top: 25
+        right: 25
+      }
     });
 </script>
 ```
@@ -53,15 +58,15 @@ Or, you configure it within your app as seen in the `script` tag below
 
 Here are some options that you can set within the `data-attrbutes` (e.g. `data-info="some information`) or in your app.
 
-- repo: The name of the repo 
-- theme: There's only one theme right now (`doodle`), however, I'd love more themes. Check out the `themes` folder or reach out if you'd like assistance in contributing
-- username: Your Github username
-- title: A title for the repo card
-- subtitle: A subtitle for the repo card
-- info: Some information you'd like to include about your project
-- background: Set the background (it accepts CSS, so HEX, RGB or even an image, `url(...)`, works
-- thumb: Set the thumbnail (it accepts CSS, so HEX, RGB or even an image, `url(...)`, works
-- position: The card is currently set to `fixed` position, so you can set where it's mounted on the page (e.g. `position: { top: 15, right: 15 }`
+- `repo`: The name of the repo 
+- `theme`: There's only one theme right now (`doodle`), however, I'd love more themes. Check out the `themes` folder or reach out if you'd like assistance in contributing
+- `username`: Your Github username
+- `title`: A title for the repo card
+- `subtitle`: A subtitle for the repo card
+- `info`: Some information you'd like to include about your project
+- `background`: Set the background (it accepts CSS, so HEX, RGB or even an image, `url(...)`, works
+- `thumb`: Set the thumbnail (it accepts CSS, so HEX, RGB or even an image, `url(...)`, works
+- `position`: The card is currently set to `fixed` position, so you can change its position (e.g. `position: { bottom: 15, left: 15 }`
 
 
 ## Coming
