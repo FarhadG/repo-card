@@ -10,7 +10,7 @@ If you've been there, then Repo Cards are for you.
 
 Here's one of my own repos with one: <a target="_blank" href="http://farhadg.github.io/2048-cube/dist/">2048 Cube</a>
 
-<a href="http://farhadg.github.io/2048-cube/dist/" target="_blank"><img src="http://i64.tinypic.com/2ldjg38.jpg" border="0" alt="2048 Cube"></a>
+<a href="http://farhadg.github.io/2048-cube/dist/" style="width:50%;" target="_blank"><img src="http://i64.tinypic.com/2ldjg38.jpg" border="0" alt="2048 Cube"></a>
 
 
 ## Usage
