@@ -8,7 +8,10 @@
   ],
   "license": "MIT",
   "keywords": [
-    "repo"
+    "repo",
+    "repo card",
+    "profile",
+    "id"
   ],
   "moduleType": [],
   "homepage": "https://www.github.com/farhadg/repo-card",
@@ -21,5 +24,8 @@
     "tests",
     "build",
     "dashboard"
-  ]
+  ],
+  "dependencies": {
+    "script-tag-data": "~0.0.6"
+  }
 }

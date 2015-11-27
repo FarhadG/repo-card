@@ -135,15 +135,15 @@
   width: 100%;
   display: table;
   border-top: 1px solid #CCCCCC;
-  padding: 10px 0 5px;
+  padding: 10px 10px 5px 10px;
 }
 
-#repo-card__social-item {
+.repo-card__social-item {
   display: table-cell;
   text-align: center;
 }
 
-#repo-card__social-item a {
+.repo-card__social-item a {
   opacity: 0;
   font-size: 0;
   text-decoration: none;

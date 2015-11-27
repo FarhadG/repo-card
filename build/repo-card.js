@@ -56,33 +56,11 @@ var RepoCard = RepoCard || (function() {
 
     // generates the github star button for a given user and repo
 
-    function _generateStarButton(username, repo) {
+    function _generateGithubButton(username, repo, type) {
       return [
-        '<li id="repo-card__social-item">',
-        '<a class="github-button"',
-        'href="https://github.com/' + username + '/' + repo + '"',
-        'data-icon="octicon-star"',
-        'data-count-href="/' + username + '/' + repo + '/stargazers"',
-        'data-count-api="/repos/' + username + '/' + repo + '#stargazers_count"',
-        'data-count-aria-label="# stargazers on GitHub"',
-        'aria-label="Star on GitHub">Star</a>',
-        '</li>'
-      ].join('');
-    }
-
-    // generates the github fork button for a given repo
-
-    function _generateForkButton(username, repo) {
-      return [
-        '<li id="repo-card__social-item">',
-        '<a class="github-button"',
-        'href="https://github.com/' + username + '/' + repo + '/fork"',
-        'data-icon="octicon-repo-forked"',
-        'data-count-href="/' + username + '/' + repo + '/network"',
-        'data-count-api="/repos/' + username + '/' + repo + '#forks_count"',
-        'data-count-aria-label="# forks on GitHub"',
-        'aria-label="Fork on GitHub">Fork</a>',
-        '</li>'
+        '<li class="repo-card__social-item"><iframe src="https://ghbtns.com/github-btn.html?user=',
+        username, '&repo=', repo, '&type=', type, '&count=true"',
+        'frameborder="0" scrolling="0" width="90px" height="20px"></iframe></li>'
       ].join('');
     }
 
@@ -90,14 +68,9 @@ var RepoCard = RepoCard || (function() {
 
     function _generateFollowButton(username) {
       return [
-        '<li id="repo-card__social-item">',
-        '<a class="github-button"',
-        'href="https://github.com/' + username + '"',
-        'data-count-href="/' + username + '/followers"',
-        'data-count-api="/users/' + username + '#followers"',
-        'data-count-aria-label="# followers on GitHub"',
-        'aria-label="Follow on GitHub">Follow @' + username + '</a>',
-        '</li>'
+        '<li class="repo-card__social-item"><iframe src="https://ghbtns.com/github-btn.html?user=',
+        username, '&type=follow"',
+        'frameborder="0" scrolling="0" width="140px" height="20px"></iframe></li>'
       ].join('');
     }
 
@@ -106,26 +79,15 @@ var RepoCard = RepoCard || (function() {
     function _generateSocialButtons(params) {
       var buttons = [];
       if (params.stars !== false) {
-        buttons.push(_generateStarButton(params.username, params.repo));
+        buttons.push(_generateGithubButton(params.username, params.repo, 'star'));
       }
       if (params.fork !== false) {
-        buttons.push(_generateForkButton(params.username, params.repo));
+        buttons.push(_generateGithubButton(params.username, params.repo, 'fork'));
       }
       if (params.follow !== false) {
         buttons.push(_generateFollowButton(params.username));
       }
       return buttons.join('');
-    }
-
-    // creates the script for the github buttons
-
-    function _generateGithubButtonsScript() {
-      var script = document.createElement('script');
-      script.src = 'https://buttons.github.io/buttons.js';
-      script.id = 'github-bjs';
-      script.attributes.async = '';
-      script.attributes.defer = '';
-      return script;
     }
 
     // generates the styling within a <style> tag
@@ -225,7 +187,6 @@ var RepoCard = RepoCard || (function() {
         el.innerHTML = _generateRepoCard(this.params, this.theme.template);
         document.body.appendChild(el);
         document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params.theme));
-        document.body.appendChild(_generateGithubButtonsScript());
         this.repoCardTemplateInjected = true;
       }
       if (this.params.background || this.params.thumb || this.params.position) {
