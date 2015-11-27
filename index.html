@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Repo Card by FarhadG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Repo Card</h1>
+      <h2 class="project-tagline">:scroll: Give your repos some freshness with a Repo Card</h2>
+      <a href="https://github.com/FarhadG/repo-card" class="btn">View on GitHub</a>
+      <a href="https://github.com/FarhadG/repo-card/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/FarhadG/repo-card/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="repo-card" class="anchor" href="#repo-card" aria-hidden="true"><span class="octicon octicon-link"></span></a><a target="_blank" href="http://farhadg.github.io/repo-card/">Repo Card</a>
+</h1>
+
+<p>Give your repos some freshness with a <a target="_blank" href="http://farhadg.github.io/repo-card/">Repo Card</a>.</p>
+
+<p>I often get lazy adding a profile to my repositories, especially when I'd like for them to get forked, starred, etc. 
+If you've been there, then Repo Cards are for you.</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>Here's one of my own repos with one: <a target="_blank" href="http://farhadg.github.io/2048-cube/dist/">2048 Cube</a></p>
+
+<p><a href="http://farhadg.github.io/2048-cube/dist/" target="_blank"><img src="http://i63.tinypic.com/x3tu6g.jpg" border="0" alt="2048 Cube"></a></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>You can add a repo card in many different ways. Choose one that's easiest for you:</p>
+
+<p>Reference the script file via the CDN (not fast, yet)</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>https://rawgit.com/FarhadG/repo-card/master/repo-card.min.js<span class="pl-pds">"</span></span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+
+<p>Install via Bower</p>
+
+<div class="highlight highlight-source-shell"><pre>$ bower install repo-card --save</pre></div>
+
+<p>Then, you simply configure the Repo card with your info</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// Once sourced from either a CDN or locally, you use the data-attributes to configure the repo card</span>
+<span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>./repo-card.min.js<span class="pl-pds">"</span></span> id<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>repo-card-lib<span class="pl-pds">"</span></span>
+        data<span class="pl-k">-</span>repo<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>init<span class="pl-pds">"</span></span>
+        data<span class="pl-k">-</span>username<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>farhadg<span class="pl-pds">"</span></span>
+        data<span class="pl-k">-</span>title<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Init<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+
+<p>Or, you configure it within your app as seen in the <code>script</code> tag below</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">&lt;</span>script src<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>../lib/repo-card/repo-card.js<span class="pl-pds">"</span></span><span class="pl-k">&gt;&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span>
+<span class="pl-k">&lt;</span>script<span class="pl-k">&gt;</span>
+  RepoCard
+    .<span class="pl-en">configure</span>({
+      repo<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>init<span class="pl-pds">'</span></span>,
+      username<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>farhadg<span class="pl-pds">'</span></span>,
+      title<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Init<span class="pl-pds">'</span></span>,
+      subtitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>@farhadg<span class="pl-pds">'</span></span>,
+      info<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>A quick way to get you to the first commit of any GitHub repo (tracks branches too)<span class="pl-pds">'</span></span>,
+      position<span class="pl-k">:</span> {
+        top<span class="pl-k">:</span> <span class="pl-c1">25</span>
+        right<span class="pl-k">:</span> <span class="pl-c1">25</span>
+      }
+    });
+<span class="pl-k">&lt;</span><span class="pl-k">/</span>script<span class="pl-k">&gt;</span></pre></div>
+
+<h2>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h2>
+
+<p>Here are some options that you can set within the <code>data-attrbutes</code> (e.g. <code>data-info="some information</code>) or in your app.</p>
+
+<ul>
+<li>
+<code>repo</code>: The name of the repo </li>
+<li>
+<code>theme</code>: There's only one theme right now (<code>doodle</code>), however, I'd love more themes. Check out the <code>themes</code> folder or reach out if you'd like assistance in contributing</li>
+<li>
+<code>username</code>: Your Github username</li>
+<li>
+<code>title</code>: A title for the repo card</li>
+<li>
+<code>subtitle</code>: A subtitle for the repo card</li>
+<li>
+<code>info</code>: Some information you'd like to include about your project</li>
+<li>
+<code>background</code>: Set the background (it accepts CSS, so HEX, RGB or even an image, <code>url(...)</code>, works</li>
+<li>
+<code>thumb</code>: Set the thumbnail (it accepts CSS, so HEX, RGB or even an image, <code>url(...)</code>, works</li>
+<li>
+<code>position</code>: The card is currently set to <code>fixed</code> position, so you can change its position (e.g. <code>position: { bottom: 15, left: 15 }</code>
+</li>
+</ul>
+
+<h2>
+<a id="coming" class="anchor" href="#coming" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coming</h2>
+
+<ul>
+<li>More themes (would love your help on this)</li>
+<li>GUI dashboard for configuring the Repo Card</li>
+<li>Animations to have the repo card hide away with interactions (e.g. <code>scroll</code>)</li>
+<li>NPM, Browserify, Webpack, etc. builds?</li>
+</ul>
+
+<h2>
+<a id="questions" class="anchor" href="#questions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Questions</h2>
+
+<p>Please use the issues page with any questions/concerns. If you like this idea and find it useful, please share the project as I'd love the help :) </p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/FarhadG/repo-card">Repo Card</a> is maintained by <a href="https://github.com/FarhadG">FarhadG</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
