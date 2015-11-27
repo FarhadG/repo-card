@@ -16,9 +16,9 @@ Here's one of my own repos with one: <a target="_blank" href="http://farhadg.git
 
 You can add a repo card in many different ways. Choose one that's easiest for you:
 
-Reference the script file via the CDN
+Reference the script file via the CDN (not fast, yet)
 ```javascript
-<script src="https://cdn.rawgit.com/FarhadG/repo-card/master/repo-card.min.js"></script>
+<script src="https://rawgit.com/FarhadG/repo-card/master/repo-card.min.js"></script>
 ```
 
 Install via Bower
