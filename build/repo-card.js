@@ -70,7 +70,7 @@ var RepoCard = RepoCard || (function() {
       return [
         '<li class="repo-card__social-item"><iframe src="https://ghbtns.com/github-btn.html?user=',
         username, '&type=follow"',
-        'frameborder="0" scrolling="0" width="140px" height="20px"></iframe></li>'
+        'frameborder="0" scrolling="0" width="130px" height="20px"></iframe></li>'
       ].join('');
     }
 

@@ -141,12 +141,6 @@
 .repo-card__social-item {
   display: table-cell;
   text-align: center;
-}
-
-.repo-card__social-item a {
-  opacity: 0;
-  font-size: 0;
-  text-decoration: none;
   position: relative;
   left: 5px;
 }
