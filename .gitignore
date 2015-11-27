@@ -1,5 +1,5 @@
 .idea
 .DS_Store
 node_modules
-examples
-lib
+examples/
+lib/
