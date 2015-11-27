@@ -75,6 +75,7 @@ Here are some options that you can set within the `data-attrbutes` (e.g. `data-i
 - More themes (would love your help on this)
 - GUI dashboard for configuring the Repo Card
 - Animations to have the repo card hide away with interactions (e.g. `scroll`)
+- NPM, Browserify, Webpack, etc. builds?
 
 
 ## Questions

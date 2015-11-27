@@ -8,10 +8,15 @@
   ],
   "license": "MIT",
   "keywords": [
+    "id",
     "repo",
     "repo card",
     "profile",
-    "id"
+    "github stars",
+    "github followers",
+    "github forks",
+    "github buttons",
+    "github ribbon"
   ],
   "moduleType": [],
   "homepage": "https://www.github.com/farhadg/repo-card",
