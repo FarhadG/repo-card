@@ -6,7 +6,7 @@ Give your repos some freshness with a Repo Card.
 I often get lazy adding a profile to my repositories, especially when I'd like for them to get forked, starred, etc. 
 If you've been there, then Repo Cards are for you.
 
-### Demo
+## Demo
 
 Here's one of my own repos with one: <a target="_blank" href="http://farhadg.github.io/2048-cube/dist/">2048 Cube</a>
 
