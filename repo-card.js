@@ -252,6 +252,7 @@ var RepoCard = RepoCard || (function() {
       else {
         var el = document.createElement('div');
         el.id = 'repo-card-container';
+        el.style.zIndex = 999999;
         el.innerHTML = _generateRepoCard(this.params, this.theme.template);
         document.body.appendChild(el);
         document.getElementsByTagName('head')[0].appendChild(_generateStylingTag(this.params.theme));
