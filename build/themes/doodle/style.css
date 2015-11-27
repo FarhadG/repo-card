@@ -135,7 +135,7 @@
   width: 100%;
   display: table;
   border-top: 1px solid #CCCCCC;
-  padding: 10px 10px 5px 10px;
+  padding: 10px 0px 5px 0px;
 }
 
 .repo-card__social-item {
@@ -147,6 +147,8 @@
   opacity: 0;
   font-size: 0;
   text-decoration: none;
+  position: relative;
+  left: 5px;
 }
 
 #repo-card:hover #repo-card__image-wrap {
