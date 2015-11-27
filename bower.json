@@ -1,7 +1,7 @@
 {
   "name": "repo-card",
   "description": "Give your projects a fresh look with a Repo Card",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "repo-card.min.js",
   "authors": [
     "Farhad Ghayour <me@farhadg.com>"
