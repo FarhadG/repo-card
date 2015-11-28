@@ -149,6 +149,18 @@
   height: 150px;
 }
 
+#repo-card-close {
+  position: absolute;
+  top: -7px;
+  right: 8px;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
 #repo-card:hover #repo-card__content-wrap:after {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
