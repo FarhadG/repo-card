@@ -12,7 +12,6 @@ function RepoCard() {
     return new RepoCard();
   }
   var params = ScriptTagData.getData('repo-card-lib', true);
-
   if (params && Object.keys(params).length > 2) {
     this.configure(params);
   }
@@ -51,7 +50,7 @@ function _setPosition(values) {
   el.position = 'fixed';
   el.top = el.right = el.bottom = el.left = 'initial';
   for (var position in values) {
-    el[position] = values[position] + 'px';
+    el[position] = values[position]+'px';
   }
 }
 
@@ -196,5 +195,9 @@ RepoCard.prototype.configure = function configure(params) {
   }
   return this;
 };
+
+/**
+ * Expose an instance of RepoCard
+ */
 
 module.exports = new RepoCard();

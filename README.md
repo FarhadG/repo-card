@@ -26,6 +26,11 @@ Install via Bower
 $ bower install repo-card --save
 ```
 
+Install via NPM 
+```bash
+$ npm install repo-card --save
+```
+
 Then, you simply configure the Repo card with your info
 ```javascript
 // Once sourced from either a CDN or locally, you use the data-attributes to configure the repo card
