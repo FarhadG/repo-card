@@ -34,10 +34,10 @@ var config = {
 
 gulp.task('scripts', function() {
   gulp.src(config.lib.src)
+    .pipe(webpackStream(config.webpack))
     .pipe(inject({
       basepath: config.themes
     }))
-    .pipe(webpackStream(config.webpack))
     .pipe(jshint())
     .pipe(concat(config.lib.rename))
     .pipe(gulp.dest(config.lib.dest))

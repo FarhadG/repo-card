@@ -12,7 +12,7 @@ function RepoCard() {
     return new RepoCard();
   }
   var params = ScriptTagData.getData('repo-card-lib', true);
-  debugger;
+
   if (params && Object.keys(params).length > 2) {
     this.configure(params);
   }
