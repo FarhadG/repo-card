@@ -1,6 +1,6 @@
 {
   "name": "repo-card",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "Give your repos some freshness with a Repo Card",
   "main": "repo-card.js",
   "scripts": {
