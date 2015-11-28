@@ -1,5 +1,6 @@
 // module dependencies
 
+var webpackStream = require('webpack-stream');
 var inject = require('gulp-js-text-inject');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
@@ -21,12 +22,19 @@ var config = {
     minify: 'repo-card.min.js',
     dest: './'
   },
+  webpack: {
+    output: {
+      libraryTarget: 'umd',
+      library: 'RepoCard'
+    }
+  }
 };
 
 // minify and write contents
 
 gulp.task('scripts', function() {
   gulp.src(config.lib.src)
+    .pipe(webpackStream(config.webpack))
     .pipe(inject({
       basepath: config.themes
     }))
