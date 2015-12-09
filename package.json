@@ -1,6 +1,6 @@
 {
   "name": "repo-card",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Give your repos some freshness with a Repo Card",
   "main": "repo-card.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://FarhadG@bitbucket.org/FarhadG/repo-card.git"
+    "url": "git+https://www.github.com/farhadg/repo-card.git"
   },
   "keywords": [
     "repo",
@@ -22,7 +22,7 @@
   ],
   "author": "",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/FarhadG/repo-card#readme",
+  "homepage": "https://www.github.com/farhadg/repo-card",
   "devDependencies": {
     "exports-loader": "^0.6.2",
     "gulp": "^3.9.0",
