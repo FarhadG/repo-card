@@ -5,7 +5,6 @@ var inject = require('gulp-js-text-inject');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var jshint = require('gulp-jshint');
 var gulp = require('gulp');
 
 // config
@@ -38,7 +37,6 @@ gulp.task('scripts', function() {
     .pipe(inject({
       basepath: config.themes
     }))
-    .pipe(jshint())
     .pipe(concat(config.lib.rename))
     .pipe(gulp.dest(config.lib.dest))
     .pipe(uglify())
